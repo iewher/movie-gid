@@ -1,0 +1,35 @@
+.home {
+
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+  
+.home video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+  
+.home-input {
+    position: absolute;
+    z-index: 1;
+    margin-top: 5rem;
+}
+
+.home-input input {
+    height: 10vh;
+    width: 50vw;
+    border-radius: 1rem;
+    border: none;
+    text-indent: 5px;
+    font-size: 2rem;
+    text-indent: 1rem;
+}
+
+input::placeholder {
+    color: gray;
+}
