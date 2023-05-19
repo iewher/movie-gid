@@ -1,26 +1,24 @@
 .home {
-
-}
-
-.home {
     display: flex;
     justify-content: center;
     overflow: hidden;
-}
+  }
   
-.home video {
+  .home video {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-}
+  }
   
-.home-input {
+  .home-input {
     position: absolute;
     z-index: 1;
     margin-top: 5rem;
-}
-
-.home-input input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .home-input input {
     height: 10vh;
     width: 50vw;
     border-radius: 1rem;
@@ -28,8 +26,35 @@
     text-indent: 5px;
     font-size: 2rem;
     text-indent: 1rem;
-}
-
-input::placeholder {
+    background-color: white;
+  }
+  
+  input::placeholder {
     color: gray;
-}
+  }
+  
+  .home-button {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    margin-left: 55rem; 
+  }
+  
+  .home-button button {
+    height: 10vh;
+    width: 5vw;
+    border-radius: 1rem;
+    border: none;
+    background-color: white;
+    color: gray;
+    transition: .3s;
+    font-size: 2rem;
+  }
+
+  .home-button button:hover {
+    background-image: none;
+    background: transparent;
+    color: transparent;
+  }
+  
