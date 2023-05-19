@@ -24,10 +24,8 @@ const CreateButton = () => {
 export const Home = () => {
   return (
     <div className='home'>
-
       <div className='video-container'>
         <video src={background} autoPlay loop muted />
-        <p>asfafsasfafasfasf</p>
         <div className='content'>
           <CreateInput />
           <CreateButton />
