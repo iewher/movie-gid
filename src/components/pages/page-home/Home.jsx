@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './style/home-style.css'
 import { BsSearch } from 'react-icons/bs'
-import { CgSmileSad } from 'react-icons/cg'
+import { AiOutlineClose } from 'react-icons/ai'
 import background from './source/background.mp4'
 
 const CreateInput = ({ onFilmsChange }) => {
@@ -28,13 +28,19 @@ const CreateButton = ({ onClick }) => {
   )
 }
 
-const ReturnError = () => {
+const ReturnError = ({ onClose }) => {
+  const handleClose = () => {
+    onClose();
+  }
+
   return (
     <div className='error'>
       <h2>Извините, но вы не сделали запрос</h2>
+      <button onClick={handleClose}><AiOutlineClose /></button>
     </div>
   )
 }
+
 
 export const Home = () => {
   const [films, setFilms] = useState('');
@@ -57,7 +63,7 @@ export const Home = () => {
           <CreateInput onFilmsChange={setFilms} />
           <CreateButton onClick={handleSubmit} />
         </div>
-        {error && <ReturnError />}
+        {error && <ReturnError onClose={() => setError(false)} />}
       </div>
     </div>
   )
