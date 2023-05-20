@@ -28,6 +28,10 @@ video {
     z-index: 1;
 }
 
+.header {
+    width: 100vw;
+}
+
 h1 {
     bottom: 80%;
     color: white;
