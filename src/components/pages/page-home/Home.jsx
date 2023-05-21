@@ -3,6 +3,7 @@ import './style/home-style.css'
 import { BsSearch } from 'react-icons/bs'
 import { AiOutlineClose } from 'react-icons/ai'
 import background from './source/background.mp4'
+import { useNavigate } from 'react-router-dom';
 
 const CreateInput = ({ onFilmsChange }) => {
   const handleFilms = (event) => {
@@ -45,10 +46,17 @@ const ReturnError = ({ onClose }) => {
 export const Home = () => {
   const [films, setFilms] = useState('');
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     if (films !== '') {
       localStorage.setItem('film', films)
+
+      /*
+      Интересно, что после 5 версии реакт роутер дом решил сменить название метода useHistoty на useNavigate
+      */
+     
+      navigate('/page-info')
     } else {
       setError(true);
     }
