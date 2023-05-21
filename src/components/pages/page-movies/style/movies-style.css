@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
+  background: linear-gradient(black, white);
   color: white;
 }
 
@@ -22,7 +22,6 @@
   width: 300px;
   margin: 10px;
   border: 2px solid gray;
-  box-shadow: 2px 2px lightgray;
   transition: transform 0.3s ease-in-out;
   background-color: white;
   color: black;
@@ -30,7 +29,7 @@
 }
 
 .movie-info:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 img {

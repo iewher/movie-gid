@@ -28,7 +28,7 @@ export const Movies = () => {
     return (
         <div className='movies'>
             <div className="request">
-                <p>Вот, что мне удалось найти по вашему запросу</p>
+                <p><strong>Вот, что удалось найти по вашему запросу</strong></p>
             </div>
             <div className="table">
                 {data && data.Search.map((movie) => (
@@ -37,7 +37,7 @@ export const Movies = () => {
                         <div className="movie-details">
                             <h2>{movie.Title}</h2>
                             <p><strong>Год выпуска:</strong> {movie.Year}</p>
-                            <p><strong>Тип фильма:</strong> {movie.Type}</p>
+                            <p><strong>Тип фильма:</strong> {movie.Type === 'movie' ? 'Фильм': 'Сериал'}</p>
                         </div>
                     </div>
                 ))}
