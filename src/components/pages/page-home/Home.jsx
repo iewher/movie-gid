@@ -56,7 +56,7 @@ export const Home = () => {
       Интересно, что после 5 версии реакт роутер дом решил сменить название метода useHistoty на useNavigate
       */
      
-      navigate('/page-info')
+      navigate('/movies')
     } else {
       setError(true);
     }

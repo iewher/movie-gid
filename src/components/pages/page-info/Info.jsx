@@ -1,32 +1,33 @@
-import React, { useState, useEffect } from 'react'
-import './style/info-style.css'
-
-
+import React, { useState, useEffect } from 'react';
+import './style/info-style.css';
 
 export const Info = () => {
-    useEffect(() => {
-        fetchData();
-    })
+  const [data, setData] = useState(null);
 
-    const fetchData = () => {
-        const parsed_title = localStorage.getItem('film');
-        const title = JSON.parse(parsed_title);
-        const API_KEY = 'aa1985f4';
-        const API_URL = `https://www.omdbapi.com/?t=${title}&plot=full&apikey=` + API_KEY;
-        fetch(API_URL)
-        .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                return data;
-            })
-            .catch((error) => {
-                console.error(error.message)
-            })
-    }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  const fetchData = () => {
+    const parsed_title = localStorage.getItem('film');
+    const title = JSON.parse(parsed_title);
+    const API_KEY = 'aa1985f4';
+    const API_URL =
+      `https://www.omdbapi.com/?t=${title}&plot=full&apikey=` + API_KEY;
+    fetch(API_URL)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
+
+  return (
+    <div className="array">
+
+    </div>
+  );
+};

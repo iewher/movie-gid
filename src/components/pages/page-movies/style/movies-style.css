@@ -1,0 +1,56 @@
+.movies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.request {
+  margin: 20px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.movie-info {
+  width: 300px;
+  margin: 10px;
+  border: 2px solid gray;
+  box-shadow: 2px 2px lightgray;
+  transition: transform 0.3s ease-in-out;
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+}
+
+.movie-info:hover {
+  transform: scale(1.05);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0 ;
+}
+
+.movie-details {
+  padding: 10px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+p {
+  margin: 0;
+}
