@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './style/movies-style.css'
 
 export const Movies = () => {
     const [data, setData] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
       fetchData();
@@ -25,10 +27,17 @@ export const Movies = () => {
         });
     };
 
+    const onClick = () => {
+        navigate('/')
+    }
+
     return (
         <div className='movies'>
             <div className="request">
                 <p><strong>Вот, что удалось найти по вашему запросу</strong></p>
+            </div>
+            <div>
+                <button onClick={onClick} className="button-back">Назад к поиску</button>
             </div>
             <div className="table">
                 {data && data.Search.map((movie) => (

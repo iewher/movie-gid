@@ -12,6 +12,20 @@
   font-size: 2rem;
 }
 
+.button-back {
+    margin: 1.5rem;
+    height: 4vh;
+    width: 10vw;
+    background: white;
+    border-radius: 1rem;
+    transition: .3s;
+    font-size: 1rem;
+}
+
+.button-back:hover {
+    transform: scale(1.05);
+}
+
 .table {
   display: flex;
   justify-content: center;
@@ -52,4 +66,19 @@ h2 {
 
 p {
   margin: 0;
+}
+
+@media (max-width: 768px) {
+    .button-back {
+        height: 4vh;
+        width: 50vw;
+        font-size: .7rem;
+    }
+  }
+
+@media (max-width: 1024px) {
+    .button-back {
+        height: 4vh;
+        width: 20vw;
+    }
 }
