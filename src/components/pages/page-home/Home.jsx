@@ -50,7 +50,7 @@ export const Home = () => {
 
   const handleSubmit = () => {
     if (films !== '') {
-      localStorage.setItem('film', JSON.stringify(films))
+      localStorage.setItem('movie', JSON.stringify(films))
 
       /*
       Интересно, что после 5 версии реакт роутер дом решил сменить название метода useHistoty на useNavigate

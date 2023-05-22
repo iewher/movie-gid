@@ -9,11 +9,11 @@ export const Info = () => {
   }, []);
 
   const fetchData = () => {
-    const parsed_title = localStorage.getItem('film');
-    const title = JSON.parse(parsed_title);
+    const get_movie = localStorage.getItem('movieId');
+    const movie = JSON.parse(get_movie);
     const API_KEY = 'aa1985f4';
     const API_URL =
-      `https://www.omdbapi.com/?t=${title}&plot=full&apikey=` + API_KEY;
+      `http://www.omdbapi.com/?i=${movie}&plot=full&apikey=` + API_KEY;
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {

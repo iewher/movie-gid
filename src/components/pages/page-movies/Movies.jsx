@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './style/movies-style.css'
 
 export const Movies = () => {
     const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
       fetchData();
     }, []);
+
+    useEffect(() => {
+        localStorage.removeItem('movieId');
+    }, [location]);
   
     const fetchData = () => {
-      const parsed_title = localStorage.getItem('film');
+      const parsed_title = localStorage.getItem('movie');
       const title = JSON.parse(parsed_title);
       const API_KEY = 'aa1985f4';
       const API_URL =
@@ -28,8 +33,14 @@ export const Movies = () => {
     };
 
     const onClick = () => {
-        navigate('/')
+        navigate('/');
+        localStorage.removeItem('movie');
     }
+
+    const goToInfo = (imdbID) => {
+        localStorage.setItem('movieId', JSON.stringify(imdbID));
+        navigate('/page-info');
+      }
 
     return (
         <div className='movies'>
@@ -41,7 +52,7 @@ export const Movies = () => {
             </div>
             <div className="table">
                 {data && data.Search.map((movie) => (
-                    <div className='movie-info' key={movie.imdbID}>
+                    <div className='movie-info' key={movie.imdbID} onClick={() => goToInfo(movie.imdbID)}>
                         <img src={movie.Poster} alt={movie.Title}/>
                         <div className="movie-details">
                             <h2>{movie.Title}</h2>
