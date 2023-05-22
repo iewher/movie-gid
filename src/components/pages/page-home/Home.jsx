@@ -13,7 +13,7 @@ const CreateInput = ({ onFilmsChange }) => {
   return (
     <div className='home-input'>
       <input 
-      placeholder='Жду запрос' 
+      placeholder='Waiting request' 
       onChange={handleFilms}/>
     </div>
   )
@@ -36,7 +36,7 @@ const ReturnError = ({ onClose }) => {
 
   return (
     <div className='error'>
-      <h2>Извините, но вы не сделали запрос</h2>
+      <h2>I'm sorry, but you didn't make a request.</h2>
       <button onClick={handleClose}><AiOutlineClose /></button>
     </div>
   )
@@ -66,7 +66,7 @@ export const Home = () => {
     <div className='home'>
       <div className='video-container'>
         <video src={background} autoPlay loop muted />
-        <h1 className='home-h1'>Ищи информацию про свои любимые фильмы, игры, сериалы</h1>
+        <h1 className='home-h1'>Search for information about your favorite movies, games, series</h1>
         <div className='content'>
           <CreateInput onFilmsChange={setFilms} />
           <CreateButton onClick={handleSubmit} />

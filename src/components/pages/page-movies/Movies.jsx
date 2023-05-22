@@ -24,7 +24,6 @@ export const Movies = () => {
       fetch(API_URL)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setData(data);
         })
         .catch((error) => {
@@ -45,10 +44,10 @@ export const Movies = () => {
     return (
         <div className='movies'>
             <div className="request">
-                <p><strong>Вот, что удалось найти по вашему запросу</strong></p>
+                <p><strong>Here is what we found for your request</strong></p>
             </div>
             <div>
-                <button onClick={onClick} className="button-back">Назад к поиску</button>
+                <button onClick={onClick} className="button-back">Back to search</button>
             </div>
             <div className="table">
                 {data && data.Search.map((movie) => (
@@ -56,8 +55,8 @@ export const Movies = () => {
                         <img src={movie.Poster} alt={movie.Title}/>
                         <div className="movie-details">
                             <h2>{movie.Title}</h2>
-                            <p><strong>Год выпуска:</strong> {movie.Year}</p>
-                            <p><strong>Тип фильма:</strong> {movie.Type === 'movie' ? 'Фильм': movie.Type === 'series' ? 'Сериал' : movie.Type === 'game' ? 'Игра' : 'Не определено'}</p>
+                            <p><strong>Year:</strong> {movie.Year}</p>
+                            <p><strong>Type:</strong> {movie.Type === 'movie' ? 'Film': movie.Type === 'series' ? 'Series' : movie.Type === 'game' ? 'Game' : 'undefined'}</p>
                         </div>
                     </div>
                 ))}

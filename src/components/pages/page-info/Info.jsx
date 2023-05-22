@@ -20,7 +20,6 @@ export const Info = () => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setData(data);
       })
       .catch((error) => {
@@ -28,15 +27,12 @@ export const Info = () => {
       });
   };
 
-  const goToMovies = () => {
-    navigate('/movies');
+  const handleClick =(path) => {
+    navigate(path);
     localStorage.removeItem('movieId');
-  }
-
-  const goToSearch = () => {
-    navigate('/');
-    localStorage.removeItem('movieId');
-    localStorage.removeItem('movie');
+    if(path === '/') {
+      localStorage.removeItem('movie');
+    }
   }
 
   return (
@@ -49,20 +45,23 @@ export const Info = () => {
           <h1>{data && data.Title}</h1>
         </div>
         <div className='info-movie'>
-          <p className='info-p'><strong>Year</strong>: {data && data.Year}</p>
-          <p className='info-p'><strong>Genre</strong>: {data && data.Genre}</p>
-          <p className='info-p'><strong>Country</strong>: {data && data.Country}</p>
-          <p className='info-p'><strong>Metascrote</strong>: {data && data.Metascore}</p>
-          <p className='info-p'><strong>Writer</strong>: {data && data.Writer}</p>
-          <p className='info-p'><strong>Director</strong>: {data && data.Director}</p>
-          <p className='info-p'><strong>Runtime</strong>: {data && data.Runtime}</p>
-          <p className='info-p'><strong>Box office</strong>: {data && data.BoxOffice}</p>
-          <p className='info-p'><strong>Awards</strong>: {data && data.Awards}</p>
-          <p className='info-p'><strong>Plot</strong>: {data && data.Plot}</p>
+          {data && <>
+            <p className='info-p'><strong>Type</strong>: {data.Type}</p>
+            <p className='info-p'><strong>Year</strong>: {data.Year}</p>
+            <p className='info-p'><strong>Genre</strong>: {data.Genre}</p>
+            <p className='info-p'><strong>Country</strong>: {data.Country}</p>
+            <p className='info-p'><strong>Metascrote</strong>: {data.Metascore ?? 'N/A'}</p>
+            <p className='info-p'><strong>Writer</strong>: {data.Writer}</p>
+            <p className='info-p'><strong>Director</strong>: {data.Director}</p>
+            <p className='info-p'><strong>Runtime</strong>: {data.Runtime}</p>
+            <p className='info-p'><strong>Box office</strong>: {data.BoxOffice ?? 'N/A'}</p>
+            <p className='info-p'><strong>Awards</strong>: {data.Awards}</p>
+            <p className='info-p'><strong>Plot</strong>: {data.Plot}</p>
+          </>}
         </div>
         <div>
-          <button className='info-buttons' onClick={goToSearch}>Назад к поиску</button>
-          <button className='info-buttons' onClick={goToMovies}>Назад к фильмам</button>
+          <button className='info-buttons' onClick={() => handleClick('/')}>Back to search</button>
+          <button className='info-buttons' onClick={() => handleClick('/movies')}>Back to movies</button>
         </div>
       </div>
     </div>
