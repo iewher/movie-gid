@@ -1,0 +1,33 @@
+.info {
+    display: flex;
+    justify-content: center;
+    background: black;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .info-poster {
+    margin: 20px;
+  }
+  
+  .info-poster-img {
+    width: 100vw; 
+    border-radius: 0; 
+  }
+  
+  .info-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px;
+  }
+  
+  .info-movie {
+    margin-top: 10px; 
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 1rem;
+  }
+  

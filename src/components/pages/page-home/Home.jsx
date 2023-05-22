@@ -13,7 +13,7 @@ const CreateInput = ({ onFilmsChange }) => {
   return (
     <div className='home-input'>
       <input 
-      placeholder='Выберите фильм' 
+      placeholder='Жду запрос' 
       onChange={handleFilms}/>
     </div>
   )
@@ -66,7 +66,7 @@ export const Home = () => {
     <div className='home'>
       <div className='video-container'>
         <video src={background} autoPlay loop muted />
-        <h1>Ищи информацию про свои любимые фильмы</h1>
+        <h1 className='home-h1'>Ищи информацию про свои любимые фильмы, игры, сериалы</h1>
         <div className='content'>
           <CreateInput onFilmsChange={setFilms} />
           <CreateButton onClick={handleSubmit} />

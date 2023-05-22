@@ -57,7 +57,7 @@ export const Movies = () => {
                         <div className="movie-details">
                             <h2>{movie.Title}</h2>
                             <p><strong>Год выпуска:</strong> {movie.Year}</p>
-                            <p><strong>Тип фильма:</strong> {movie.Type === 'movie' ? 'Фильм': 'Сериал'}</p>
+                            <p><strong>Тип фильма:</strong> {movie.Type === 'movie' ? 'Фильм': movie.Type === 'series' ? 'Сериал' : movie.Type === 'game' ? 'Игра' : 'Не определено'}</p>
                         </div>
                     </div>
                 ))}
