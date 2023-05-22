@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style/info-style.css';
 
 export const Info = () => {
   const [data, setData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -26,6 +28,17 @@ export const Info = () => {
       });
   };
 
+  const goToMovies = () => {
+    navigate('/movies');
+    localStorage.removeItem('movieId');
+  }
+
+  const goToSearch = () => {
+    navigate('/');
+    localStorage.removeItem('movieId');
+    localStorage.removeItem('movie');
+  }
+
   return (
     <div className="info">
       <div className="info-poster">
@@ -33,19 +46,23 @@ export const Info = () => {
       </div>
       <div className="info-text">
         <div className="info-name">
-          <h1>{data.Title}</h1>
+          <h1>{data && data.Title}</h1>
         </div>
         <div className='info-movie'>
-          <p><strong>Year</strong>: {data.Year}</p>
-          <p><strong>Genre</strong>: {data.Genre}</p>
-          <p><strong>Country</strong>: {data.Country}</p>
-          <p><strong>Metascrote</strong>: {data.Metascore}</p>
-          <p><strong>Writer</strong>: {data.Writer}</p>
-          <p><strong>Director</strong>: {data.Director}</p>
-          <p><strong>Runtime</strong>: {data.Runtime}</p>
-          <p><strong>Box office</strong>: {data.BoxOffice}</p>
-          <p><strong>Awards</strong>: {data.Awards}</p>
-          <p><strong>Plot</strong>: {data.Plot}</p>
+          <p className='info-p'><strong>Year</strong>: {data && data.Year}</p>
+          <p className='info-p'><strong>Genre</strong>: {data && data.Genre}</p>
+          <p className='info-p'><strong>Country</strong>: {data && data.Country}</p>
+          <p className='info-p'><strong>Metascrote</strong>: {data && data.Metascore}</p>
+          <p className='info-p'><strong>Writer</strong>: {data && data.Writer}</p>
+          <p className='info-p'><strong>Director</strong>: {data && data.Director}</p>
+          <p className='info-p'><strong>Runtime</strong>: {data && data.Runtime}</p>
+          <p className='info-p'><strong>Box office</strong>: {data && data.BoxOffice}</p>
+          <p className='info-p'><strong>Awards</strong>: {data && data.Awards}</p>
+          <p className='info-p'><strong>Plot</strong>: {data && data.Plot}</p>
+        </div>
+        <div>
+          <button className='info-buttons' onClick={goToSearch}>Назад к поиску</button>
+          <button className='info-buttons' onClick={goToMovies}>Назад к фильмам</button>
         </div>
       </div>
     </div>
