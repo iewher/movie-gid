@@ -41,10 +41,13 @@ export const Movies = () => {
         navigate('/page-info');
       }
 
+    const get_movie = localStorage.getItem('movie');
+    const movie_name = JSON.parse(get_movie);
+
     return (
         <div className='movies'>
             <div className="request">
-                <p><strong>Here is what we found for your request</strong></p>
+                <p><strong>Here is what we found for your request {movie_name}</strong></p>
             </div>
             <div>
                 <button onClick={onClick} className="button-back">Back to search</button>
