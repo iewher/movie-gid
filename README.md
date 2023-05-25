@@ -1,3 +1,36 @@
+# Quick reference
+
+Movie guide is a navigator in the country of movies, series, games, here you can see any information about them.
+Implemented features:
+1. Search for movies, series, games
+2. Convenient choice
+3. Detailed information
+4. Full adaptation for mobile devices
+
+## Used API
+  
+1. https://www.omdbapi.com/
+
+# Preview
+
+You can quickly get acquainted with the work of my project
+
+<div align="center">
+  
+<h3>home page</h3>
+  
+<image src="public/forgithub/example1 .jpg" height="420" width="750">
+  
+<h3>choise page</h3>
+  
+<image src="public/forgithub/example2.jpg" height="420" width="750">
+  
+<h3>information page</h3>
+  
+<image src="public/forgithub/example3.jpg" height="420" width="750">
+
+</div>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
