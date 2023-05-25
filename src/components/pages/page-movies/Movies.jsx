@@ -65,7 +65,7 @@ export const Movies = () => {
                         </div>
                     ))
                 ) : (
-                    <div className='error'>
+                    <div className='error-movies-search'>
                       <p>Sorry, we could not find information on the film {movie_name}, make another request</p>
                     </div>
                 )}
