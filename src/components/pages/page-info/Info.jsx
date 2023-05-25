@@ -4,6 +4,7 @@ import './style/info-style.css';
 
 export const Info = () => {
   const [data, setData] = useState(null);
+  // const [isFavorite, setIsFavorite] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +22,7 @@ export const Info = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
+        console.log(data)
       })
       .catch((error) => {
         console.error(error.message);
@@ -35,6 +37,20 @@ export const Info = () => {
     }
   }
 
+  // const favoritArray = []; 
+
+  // const handleFavorit = () => {
+  //   if (!favoritArray.includes(data.imdbID)) {
+  //     favoritArray.push(data.imdbID)
+  //     setIsFavorite(true);
+  //     console.log(favoritArray)
+  //   } else {
+  //     setIsFavorite(false);
+  //     favoritArray.pop();
+  //     console.log(favoritArray);
+  //   }
+  // }
+
   return (
     <div className="info">
       <div className="info-poster">
@@ -44,6 +60,11 @@ export const Info = () => {
         <div className="info-name">
           <h1>{data && data.Title}</h1>
         </div>
+        {/* <div className="info-favorit">
+          <button onClick={handleFavorit}>
+            {isFavorite ? 'Remove from favorit' : 'Add to favorit'}
+          </button> 
+        </div> */}
         <div className='info-movie'>
           {data && <>
             <p className='info-p'><strong>Type</strong>: {data.Type}</p>

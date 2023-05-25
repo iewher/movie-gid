@@ -24,6 +24,18 @@
     font-weight: bold;
     margin: 1.5rem;
   }
+
+  .info-favorit {
+    margin: 1rem;
+  }
+
+  .info-favorit button {
+    width: 10vw;
+    height: 4vh;
+    background: white;
+    border: none;
+    border-radius: 1rem;
+  }
   
   .info-movie {
     margin-top: 0.8rem; 
@@ -61,6 +73,10 @@
     .info-buttons {
       width: 20vw;
     }
+
+    .info-favorit button {
+      width: 20vw;
+    }
   }
 
 @media (max-width: 1024px) {
@@ -78,6 +94,10 @@
   }
 
   .info-buttons {
+    width: 15vw;
+  }
+
+  .info-favorit button {
     width: 15vw;
   }
 }
