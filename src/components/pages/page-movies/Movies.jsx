@@ -53,16 +53,22 @@ export const Movies = () => {
                 <button onClick={onClick} className="button-back">Back to search</button>
             </div>
             <div className="table">
-                {data && data.Search.map((movie) => (
-                    <div className='movie-info' key={movie.imdbID} onClick={() => goToInfo(movie.imdbID)}>
-                        <img src={movie.Poster} alt={movie.Title}/>
-                        <div className="movie-details">
-                            <h2>{movie.Title}</h2>
-                            <p><strong>Year:</strong> {movie.Year}</p>
-                            <p><strong>Type:</strong> {movie.Type === 'movie' ? 'Film': movie.Type === 'series' ? 'Series' : movie.Type === 'game' ? 'Game' : 'undefined'}</p>
+                {data && data.Search ? (
+                    data.Search.map((movie) => (
+                        <div className='movie-info' key={movie.imdbID} onClick={() => goToInfo(movie.imdbID)}>
+                            <img src={movie.Poster} alt={movie.Title}/>
+                            <div className="movie-details">
+                                <h2>{movie.Title}</h2>
+                                <p><strong>Year:</strong> {movie.Year}</p>
+                                <p><strong>Type:</strong> {movie.Type === 'movie' ? 'Film': movie.Type === 'series' ? 'Series' : movie.Type === 'game' ? 'Game' : 'undefined'}</p>
+                            </div>
                         </div>
+                    ))
+                ) : (
+                    <div className='error'>
+                      <p>Sorry, we could not find information on the film {movie_name}, make another request</p>
                     </div>
-                ))}
+                )}
             </div>
         </div>
     )
