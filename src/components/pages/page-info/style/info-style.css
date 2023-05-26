@@ -73,10 +73,6 @@
     .info-buttons {
       width: 20vw;
     }
-
-    .info-favorit button {
-      width: 20vw;
-    }
   }
 
 @media (max-width: 1024px) {
@@ -94,10 +90,6 @@
   }
 
   .info-buttons {
-    width: 15vw;
-  }
-
-  .info-favorit button {
     width: 15vw;
   }
 }
