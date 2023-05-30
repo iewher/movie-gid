@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
-import './style/movies-style.css'
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './style/movies-style.scss';
 
 export const Movies = () => {
     const [data, setData] = useState(null);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './style/info-style.css';
+import './style/info-style.scss';
 
 export const Info = () => {
   const [data, setData] = useState(null);

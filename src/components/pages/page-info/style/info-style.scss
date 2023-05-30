@@ -1,6 +1,10 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
 .info {
-    display: flex;
-    justify-content: center;
+    @include flex-center();
     background: black;
     color: white;
     height: fit-content;
@@ -29,12 +33,14 @@
     margin: 1rem;
   }
 
-  .info-favorit button {
-    width: 10vw;
-    height: 4vh;
-    background: white;
-    border: none;
-    border-radius: 1rem;
+  .info-favorit {
+    button {
+      width: 10vw;
+      height: 4vh;
+      background: white;
+      border: none;
+      border-radius: 1rem;
+    }
   }
   
   .info-movie {
@@ -93,4 +99,3 @@
     width: 15vw;
   }
 }
-  

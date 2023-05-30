@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import './style/home-style.css'
-import { BsSearch } from 'react-icons/bs'
-import { AiOutlineClose } from 'react-icons/ai'
-import background from './source/background.mp4'
+import React, {useState} from 'react';
+import './style/home-style.scss';
+import { BsSearch } from 'react-icons/bs';
+import { AiOutlineClose } from 'react-icons/ai';
+import background from './source/background.mp4';
 import { useNavigate } from 'react-router-dom';
 
 const CreateInput = ({ onFilmsChange }) => {
