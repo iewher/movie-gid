@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import './style/style.css'
+import './style/style.scss'
 
 import { Home } from './components/pages/page-home/Home';
 import { Movies } from './components/pages/page-movies/Movies';

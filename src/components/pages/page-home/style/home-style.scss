@@ -32,6 +32,64 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+
+    &-h1 {
+        @extend %equals;
+        text-align: center;
+        bottom: 80%;
+        color: white;
+        font-size: 2rem;
+        max-width: 50vw;
+
+        @media (max-width: 1024px) {
+            bottom: 80%;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            bottom: 75%;
+            color: white;
+            font-size: 1px;
+        }
+    }
+
+    &-input {
+        input {
+            @extend %input-buttons;
+            height: 6vh;
+            width: 30vw;
+            text-indent: 1rem;
+
+            @media (max-width: 1024px) {
+                width: 50vw;
+                font-size: 1.2rem;
+            }
+
+            @media (max-width: 768px) {
+                width: 70vw;
+                font-size: .8rem;
+            }
+        }
+    }
+
+    &-button {
+        button {
+            @extend %input-buttons;
+            height: 6vh;
+            width: 3vw;
+
+            @media (max-width: 1024px) {
+                width: 10vw;
+                font-size: 1.2rem;
+            }
+
+            @media (max-width: 768px) {
+                width: 15vw;
+                font-size: .8rem;
+            }
+        }
+    }
 }
 
 .video-container {
@@ -48,50 +106,9 @@ video {
     @extend %equals;
 }
 
-.home-h1 {
-    @extend %equals;
-    text-align: center;
-}
-
 .error {
     @extend %equals;
-}
-
-.header {
-    width: 100vw;
-}
-
-.home-h1 {
-    bottom: 80%;
-    color: white;
-    font-size: 2rem;
-    max-width: 50vw;
-}
-  
-.home-input input {
-    @extend %input-buttons;
-}
-
-.home-button button {
-    @extend %input-buttons;
-}
-
-.home-input {
-    input {
-        height: 6vh;
-        width: 30vw;
-        text-indent: 1rem;
-    }
-}
-
-.home-button {
-    button {
-        height: 6vh;
-        width: 3vw;
-    }
-}
-
-.error {
+    @include flex-center();
     bottom: 50%;
     color: white;
     font-size: 1rem;
@@ -102,9 +119,6 @@ video {
     height: 4vh;
     width: fit-content;
     transition: .5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: .5rem;
 
     button {
@@ -115,58 +129,18 @@ video {
         font-size: 1rem;
         margin-top: 5px;
     }
+
+    @media (max-width: 1024px) {
+        bottom: 50%;
+        font-size: .5rem;
+    }
+
+    @media (max-width: 768px) {
+        bottom: 50%;
+        font-size: .5rem;
+    }
 }
-  
-  @media (max-width: 768px) {
-    .home-input {
-        input {
-            width: 70vw;
-            font-size: .8rem;
-        }
-    }
 
-    .home-button {
-        button {
-            width: 15vw;
-            font-size: .8rem;
-        }
-    }
-
-    .home-h1 {
-        bottom: 75%;
-        color: white;
-        font-size: 1px;
-    }
-
-    .error {
-        bottom: 50%;
-        font-size: .5rem;
-    }
-  }
-
-@media (max-width: 1024px) {
-    .home-input {
-        input {
-            width: 50vw;
-            font-size: 1.2rem;
-        }
-    }
-
-    .home-button {
-        button {
-            width: 10vw;
-            font-size: 1.2rem;
-        }
-    }
-
-    .home-h1 {
-        bottom: 80%;
-        color: white;
-        font-size: 1.3rem;
-    }
-
-    .error {
-        bottom: 50%;
-        font-size: .5rem;
-    }
+.header {
+    width: 100vw;
 }
