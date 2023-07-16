@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style/info-style.scss";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const Info = () => {
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +23,7 @@ export const Info = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
+        setIsLoading(false); // Устанавливаем флаг isLoading в false, когда данные загружены
         console.log(data);
       })
       .catch((error) => {
@@ -38,64 +41,72 @@ export const Info = () => {
 
   return (
     <div className="info">
-      <div className="info-poster">
-        <img src={data && data.Poster} className="info-poster-img" />
-      </div>
-      <div className="info-text">
-        <div className="info-name">
-          <h1>{data && data.Title}</h1>
+      {isLoading ? (
+        <div className="info-loading">
+          <CircularProgress />
         </div>
-        <div className="info-movie">
-          {data && (
-            <>
-              <p className="info-p">
-                <strong>Type</strong>: {data.Type}
-              </p>
-              <p className="info-p">
-                <strong>Year</strong>: {data.Year}
-              </p>
-              <p className="info-p">
-                <strong>Genre</strong>: {data.Genre}
-              </p>
-              <p className="info-p">
-                <strong>Country</strong>: {data.Country}
-              </p>
-              <p className="info-p">
-                <strong>Metascrote</strong>: {data.Metascore ?? "N/A"}
-              </p>
-              <p className="info-p">
-                <strong>Writer</strong>: {data.Writer}
-              </p>
-              <p className="info-p">
-                <strong>Director</strong>: {data.Director}
-              </p>
-              <p className="info-p">
-                <strong>Runtime</strong>: {data.Runtime}
-              </p>
-              <p className="info-p">
-                <strong>Box office</strong>: {data.BoxOffice ?? "N/A"}
-              </p>
-              <p className="info-p">
-                <strong>Awards</strong>: {data.Awards}
-              </p>
-              <p className="info-p">
-                <strong>Plot</strong>: {data.Plot}
-              </p>
-            </>
-          )}
-        </div>
-        <div>
-          <button className="info-buttons" onClick={() => handleClick("/")}>
-            Back to search
-          </button>
-          <button
-            className="info-buttons"
-            onClick={() => handleClick("/movies")}
-          >
-            Back to movies
-          </button>
-        </div>
-      </div>
+      ) : (
+        <>
+          <div className="info-poster">
+            <img src={data && data.Poster} className="info-poster-img" />
+          </div>
+          <div className="info-text">
+            <div className="info-name">
+              <h1>{data && data.Title}</h1>
+            </div>
+            <div className="info-movie">
+              {data && (
+                <>
+                  <p className="info-p">
+                    <strong>Type</strong>: {data.Type}
+                  </p>
+                  <p className="info-p">
+                    <strong>Year</strong>: {data.Year}
+                  </p>
+                  <p className="info-p">
+                    <strong>Genre</strong>: {data.Genre}
+                  </p>
+                  <p className="info-p">
+                    <strong>Country</strong>: {data.Country}
+                  </p>
+                  <p className="info-p">
+                    <strong>Metascrote</strong>: {data.Metascore ?? "N/A"}
+                  </p>
+                  <p className="info-p">
+                    <strong>Writer</strong>: {data.Writer}
+                  </p>
+                  <p className="info-p">
+                    <strong>Director</strong>: {data.Director}
+                  </p>
+                  <p className="info-p">
+                    <strong>Runtime</strong>: {data.Runtime}
+                  </p>
+                  <p className="info-p">
+                    <strong>Box office</strong>: {data.BoxOffice ?? "N/A"}
+                  </p>
+                  <p className="info-p">
+                    <strong>Awards</strong>: {data.Awards}
+                  </p>
+                  <p className="info-p">
+                    <strong>Plot</strong>: {data.Plot}
+                  </p>
+                </>
+              )}
+            </div>
+            <div>
+              <button className="info-buttons" onClick={() => handleClick("/")}>
+                Back to search
+              </button>
+              <button
+                className="info-buttons"
+                onClick={() => handleClick("/movies")}
+              >
+                Back to movies
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -97,4 +97,9 @@ p {
 
 .error-movies-search {
   @include flex-center();
+  flex-direction: column;
+
+  p {
+    margin-top: 10px;
+  }
 }

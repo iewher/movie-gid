@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./style/movies-style.scss";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const Movies = () => {
   const [data, setData] = useState(null);
@@ -85,9 +86,9 @@ export const Movies = () => {
           ))
         ) : (
           <div className="error-movies-search">
+            <CircularProgress />
             <p>
-              Sorry, we could not find information on the film {movie_name},
-              make another request
+              Please wait, if the download takes too long, check the request
             </p>
           </div>
         )}
