@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./style/info-style.scss";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Button } from "antd";
+import "../../scss/info/info-style.scss";
 
 export const Info = () => {
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,7 +14,7 @@ export const Info = () => {
   }, []);
 
   const fetchData = () => {
-    const get_movie = localStorage.getItem("movieId");
+    const get_movie: any = localStorage.getItem("movieId");
     const movie = JSON.parse(get_movie);
     const API_KEY = "aa1985f4";
     const API_URL =
@@ -23,7 +24,7 @@ export const Info = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        setIsLoading(false); // Устанавливаем флаг isLoading в false, когда данные загружены
+        setIsLoading(false);
         console.log(data);
       })
       .catch((error) => {
@@ -31,7 +32,7 @@ export const Info = () => {
       });
   };
 
-  const handleClick = (path) => {
+  const handleClick = (path: string) => {
     navigate(path);
     localStorage.removeItem("movieId");
     if (path === "/") {
@@ -48,7 +49,7 @@ export const Info = () => {
       ) : (
         <>
           <div className="info-poster">
-            <img src={data && data.Poster} className="info-poster-img" />
+            <img src={data && data.Poster} alt="" />
           </div>
           <div className="info-text">
             <div className="info-name">
@@ -94,15 +95,15 @@ export const Info = () => {
               )}
             </div>
             <div>
-              <button className="info-buttons" onClick={() => handleClick("/")}>
+              <Button className="info-buttons" onClick={() => handleClick("/")}>
                 Back to search
-              </button>
-              <button
+              </Button>
+              <Button
                 className="info-buttons"
                 onClick={() => handleClick("/movies")}
               >
                 Back to movies
-              </button>
+              </Button>
             </div>
           </div>
         </>

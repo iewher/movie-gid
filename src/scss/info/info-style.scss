@@ -1,16 +1,10 @@
-@mixin flex-center {
+.info {
   display: flex;
   justify-content: center;
-}
-
-.info {
-  @include flex-center();
   background: black;
   color: white;
-  height: fit-content;
-  width: 100vw;
-  max-width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
 
   &-loading {
     margin-top: 10px;
@@ -19,9 +13,8 @@
   &-poster {
     margin: 1.3rem;
 
-    &-img {
-      width: 100vw;
-      border-radius: 0;
+    img {
+      border-radius: 1;
       max-width: 20vw;
     }
   }

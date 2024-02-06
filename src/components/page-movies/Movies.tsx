@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./style/movies-style.scss";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Button } from "antd";
+import data_key from "../../pass.json";
+import "../../scss/movies/movies-style.scss";
 
 export const Movies = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,9 +19,9 @@ export const Movies = () => {
   }, [location]);
 
   const fetchData = () => {
-    const parsed_title = localStorage.getItem("movie");
+    const parsed_title: any = localStorage.getItem("movie");
     const title = JSON.parse(parsed_title);
-    const API_KEY = "aa1985f4";
+    const API_KEY = data_key.KEY;
     const API_URL =
       `https://www.omdbapi.com/?s=${title}&plot=full&apikey=` + API_KEY;
     fetch(API_URL)
@@ -37,12 +39,12 @@ export const Movies = () => {
     localStorage.removeItem("movie");
   };
 
-  const goToInfo = (imdbID) => {
+  const goToInfo = (imdbID: string) => {
     localStorage.setItem("movieId", JSON.stringify(imdbID));
     navigate("/page-info");
   };
 
-  const get_movie = localStorage.getItem("movie");
+  const get_movie: any = localStorage.getItem("movie");
   const movie_name = JSON.parse(get_movie);
 
   return (
@@ -53,13 +55,13 @@ export const Movies = () => {
         </p>
       </div>
       <div>
-        <button onClick={onClick} className="button-back">
+        <Button onClick={onClick} className="button-back">
           Back to search
-        </button>
+        </Button>
       </div>
       <div className="table">
         {data && data.Search ? (
-          data.Search.map((movie) => (
+          data.Search.map((movie: any) => (
             <div
               className="movie-info"
               key={movie.imdbID}
@@ -76,10 +78,10 @@ export const Movies = () => {
                   {movie.Type === "movie"
                     ? "Film"
                     : movie.Type === "series"
-                    ? "Series"
-                    : movie.Type === "game"
-                    ? "Game"
-                    : "undefined"}
+                      ? "Series"
+                      : movie.Type === "game"
+                        ? "Game"
+                        : "undefined"}
                 </p>
               </div>
             </div>

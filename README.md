@@ -1,31 +1,50 @@
-# Quick reference
+# Проект @DEPRECATED
 
-Movie guide is a navigator in the country of movies, series, games, here you can see any information about them.
-Implemented features:
-1. Search for movies, series, games
-2. Convenient choice
-3. Detailed information
-4. Full adaptation for mobile devices
+# Краткая справка
 
-## Used API
-  
+Movie-gid - это навигатор по фильмам, сериалам, играм
+
+Использованные UI
+
+1. antd
+
+Реализовано:
+
+1. Поиск по фильмам, сериалам, играм
+2. Детальная информация
+3. Мобильное разрешение
+
+Использованыне API:
+
 1. https://www.omdbapi.com/
 
-# Preview
+Инструкция:
 
-You can quickly get acquainted with the work of my project
+В папке /src создать файл pass.json, в файле ОБЯЗАТЕЛЬНО прописать:
+
+```json
+{
+  "KEY": "key"
+}
+```
+
+ключ можно найти на сайте https://www.omdbapi.com/apikey.aspx
+
+# Обзор
+
+Краткий обзор проекта
 
 <div align="center">
   
-<h3>home page</h3>
+<h3>Страница поиска</h3>
   
 <image src="public/forgithub/example1 .jpg" height="420" width="750">
   
-<h3>choise page</h3>
+<h3>Страница с найденным материалом</h3>
   
 <image src="public/forgithub/example2.jpg" height="420" width="750">
   
-<h3>information page</h3>
+<h3>Страница с информацией</h3>
   
 <image src="public/forgithub/example3.jpg" height="420" width="750">
 

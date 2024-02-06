@@ -1,0 +1,57 @@
+.home {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .video-container {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+
+    video {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      object-fit: cover;
+    }
+
+    h1 {
+      position: absolute;
+      bottom: 65%;
+      left: 50%;
+      text-align: center;
+      bottom: 80%;
+      color: white;
+      font-size: 2.5rem;
+      max-width: 50vw;
+      transform: translate(-50%, -50%);
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      form {
+        display: flex;
+        gap: 20px;
+
+        input {
+          height: 50px;
+          width: 500px;
+        }
+
+        button {
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+  }
+}
